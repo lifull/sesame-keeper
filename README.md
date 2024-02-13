@@ -1,4 +1,12 @@
+# credentials-manager
+
 rails-like credential management mechanism
+
+## install
+
+```sh
+npm install {this package} --save
+```
 
 ## setup
 
@@ -26,7 +34,7 @@ EDITOR=vim npx credentials edit
 npx credentials cat
 ```
 
-## reset master_key
+## reset master.key
 
 ```sh
 npx credentials reset
@@ -51,8 +59,6 @@ const {Credential} = new require('credentials-manager')
 const credentials = new Credential
 
 app.credentials = credentials.value
-
-console.log(app.credentials)
 
 app.get('/', function (req, res) {
   res.send(`credential [foo]: ${req.app.credentials.foo}`)
