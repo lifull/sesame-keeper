@@ -12,8 +12,8 @@
     "credentials": "commands/index.js",
     "credentials_diff": "commands/diff.js"
   },
-  "author": "",
-  "license": "MIT",
+  "author": "NakajimaTakuya@lifull.com",
+  "license": "Apache-2.0",
   "dependencies": {
     "tmp": "^0.2.1",
     "yaml": "^2.3.4"
