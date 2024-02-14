@@ -1,5 +1,5 @@
 {
-  "name": "sesame-keeper",
+  "name": "@lifull/sesame-keeper",
   "version": "0.0.1",
   "description": "rails-like credential management mechanism.",
   "keywords": [
@@ -18,6 +18,9 @@
   "bin": {
     "sesame": "commands/index.js",
     "sesame_diff": "commands/diff.js"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   },
   "author": "NakajimaTakuya@lifull.com",
   "license": "Apache-2.0",
