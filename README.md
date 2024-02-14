@@ -14,6 +14,17 @@ npm install {this package} --save
 npx credentials setup
 ```
 
+The following file is generated when this command is executed.
+
+| file | description |
+|---|---|
+| config/credential.yml.enc | Encrypted configuration file. To edit, run `npx credentials edit`. |
+| config/master/key | The common key used to decrypt encrypted configuration files. |
+| .gitignore | A configuration file that defines exclusion patterns for git management. If it already exists, only the `master.key` will be appended. |
+| .gitattributes | The specification is made to obtain the differences in the configuration file in decrypted form. If the file already exists, only an append is made. |
+
+Please note that the `master.key` set here should never be published on git.
+
 ## edit
 
 ```sh
@@ -34,13 +45,19 @@ EDITOR=vim npx credentials edit
 npx credentials cat
 ```
 
+The contents of the decrypted configuration file are displayed when this command is executed.
+
 ## reset master.key
 
 ```sh
 npx credentials reset
 ```
 
+Regenerate master.key. The configuration is re-encrypted with the new key.
+
 ## load
+
+If you want to access the configuration from within the application, write:
 
 ```javascript
 const {Credential} = require('credentials-manager');
@@ -50,6 +67,8 @@ console.log(credential.value);
 ```
 
 ## example (in express)
+
+When using express, it is useful to have the contents of the configuration file in the application object.
 
 ```javascript
 const express = require('express')
