@@ -1,7 +1,14 @@
 {
   "name": "sesame-keeper",
   "version": "0.0.1",
-  "description": "",
+  "description": "rails-like credential management mechanism.",
+  "keywords": [
+    "credentials",
+    "secrets",
+    "env",
+    "encrypt",
+    "decrypt"
+  ],
   "main": "index.js",
   "scripts": {
     "test": "mocha test/**/*-test.js",
