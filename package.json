@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha test/**/*-test.js",
+    "mocha": "mocha",
     "example": "cd example && npm ci && git init . && npx credentials setup && node app.js"
   },
   "bin": {
@@ -16,5 +17,8 @@
   "dependencies": {
     "tmp": "^0.2.1",
     "yaml": "^2.3.4"
+  },
+  "devDependencies": {
+    "mocha": "^10.3.0"
   }
 }
