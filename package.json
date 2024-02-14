@@ -1,16 +1,16 @@
 {
-  "name": "credentials-manager",
+  "name": "sesame-keeper",
   "version": "0.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "mocha test/**/*-test.js",
     "mocha": "mocha",
-    "example": "cd example && npm ci && git init . && npx credentials setup && node app.js"
+    "example": "cd example && npm ci && git init . && npx sesame setup && node app.js"
   },
   "bin": {
-    "credentials": "commands/index.js",
-    "credentials_diff": "commands/diff.js"
+    "sesame": "commands/index.js",
+    "sesame_diff": "commands/diff.js"
   },
   "author": "NakajimaTakuya@lifull.com",
   "license": "Apache-2.0",

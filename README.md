@@ -1,6 +1,8 @@
-# credentials-manager
+# sesame-keeper
 
-rails-like credential management mechanism
+rails-like credential management mechanism.
+
+open sesame!
 
 ## install
 
@@ -11,7 +13,7 @@ npm install {this package} --save
 ## setup
 
 ```sh
-npx credentials setup
+npx sesame setup
 ```
 
 The following file is generated when this command is executed.
@@ -28,7 +30,7 @@ Please note that the `master.key` set here should never be published on git.
 ## edit
 
 ```sh
-npx credentials edit
+npx sesame edit
 ```
 
 This command refers to $VISUAL, $EDITOR as the editing editor.
@@ -36,13 +38,13 @@ This command refers to $VISUAL, $EDITOR as the editing editor.
 If you want to use a different editor, set the environment variable as follows.
 
 ```sh
-EDITOR=vim npx credentials edit
+EDITOR=vim npx sesame edit
 ```
 
 ## only show
 
 ```sh
-npx credentials cat
+npx sesame cat
 ```
 
 The contents of the decrypted configuration file are displayed when this command is executed.
@@ -50,7 +52,7 @@ The contents of the decrypted configuration file are displayed when this command
 ## reset master.key
 
 ```sh
-npx credentials reset
+npx sesame reset
 ```
 
 Regenerate master.key. The configuration is re-encrypted with the new key.
@@ -60,7 +62,7 @@ Regenerate master.key. The configuration is re-encrypted with the new key.
 If you want to access the configuration from within the application, write:
 
 ```javascript
-const {Credential} = require('credentials-manager');
+const {Credential} = require('sesame-keeper');
 const credential = new Credential
 
 console.log(credential.value);
@@ -74,7 +76,7 @@ When using express, it is useful to have the contents of the configuration file 
 const express = require('express')
 const app = express()
 
-const {Credential} = new require('credentials-manager')
+const { Credential } = new require('sesame-keeper')
 const credentials = new Credential
 
 app.credentials = credentials.value

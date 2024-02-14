@@ -12,8 +12,8 @@ switch(operation) {
     credential.write(`hoge: 1234`);
 
     let git = new Git;
-    git.addAttribute('config/credentials.yml.enc', 'diff=credentials_manager');
-    git.addFilter('credentials_manager', 'npx credentials_diff');
+    git.addAttribute('config/credentials.yml.enc', 'diff=sesame');
+    git.addFilter('sesame', 'npx sesame_diff');
     git.addIgnore('config/master.key');
     break;
   }
