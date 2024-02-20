@@ -20,7 +20,7 @@ The following file is generated when this command is executed.
 
 | file | description |
 |---|---|
-| config/credential.yml.enc | Encrypted configuration file. To edit, run `npx credentials edit`. |
+| config/credential.yml.enc | Encrypted configuration file. To edit, run `npx sesame edit`. |
 | config/master.key | The common key used to decrypt encrypted configuration files. |
 | .gitignore | A configuration file that defines exclusion patterns for git management. If it already exists, only the `master.key` will be appended. |
 | .gitattributes | The specification is made to obtain the differences in the configuration file in decrypted form. If the file already exists, only an append is made. |
