@@ -32,4 +32,28 @@ switch(operation) {
     credential.reset();
     break;
   }
+  case 'help': {
+    console.log(`usage: npx sesame <command>
+
+The following is a list of commands:
+
+  setup   This command sets up sesame.
+          The following file is generated when this command is executed.
+
+          config/credential.yml.enc: Encrypted configuration file. To edit, run 'npx sesame edit'.
+          config/master.key: The common key used to decrypt encrypted configuration files.
+          .gitignore: A configuration file that defines exclusion patterns for git management. If it already exists, only the 'master.key' will be appended.
+          .gitattributes: The specification is made to obtain the differences in the configuration file in decrypted form. If the file already exists, only an append is made.
+
+  cat     The contents of the decrypted configuration file are displayed when this command is executed.
+
+  edit    Edit credential file. This command refers to $VISUAL, $EDITOR as the editing editor.
+
+  reset   Regenerate master.key. The configuration is re-encrypted with the new key.
+`);
+    break;
+  }
+  default: {
+    console.log(`'${operation}' is not a sesame commands. See 'npx sesame help'`);
+  }
 }
