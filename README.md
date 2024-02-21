@@ -27,6 +27,8 @@ The following file is generated when this command is executed.
 
 Be careful not to publish the generated config/master.key in git.
 
+The key used for encryption/decryption is the `config/master.key` generated here, or if not available, the `$MASTER_KEY` environment variable.
+
 ## edit
 
 ```sh
