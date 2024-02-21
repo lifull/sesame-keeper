@@ -1,6 +1,6 @@
 {
   "name": "@lifull/sesame-keeper",
-  "version": "0.0.5",
+  "version": "0.0.7",
   "description": "rails-like credential management mechanism.",
   "keywords": [
     "credentials",
