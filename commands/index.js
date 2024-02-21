@@ -13,7 +13,7 @@ switch(operation) {
     credential.write(`hoge: 1234`);
 
     let git = new Git;
-    if (!git.isInstalled) {
+    if (!git.isRepository) {
       log.pass(`git files`)
       log.reason(`because .git directory is not found. If you start git management later, run the 'npx sesame gitsetup' command at that time.`)
       break;
@@ -26,7 +26,7 @@ switch(operation) {
   }
   case 'setgit': {
     let git = new Git;
-    if (!git.isInstalled) {
+    if (!git.isRepository) {
       log.error(`.git directory is not found.`)
       break;
     }
