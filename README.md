@@ -57,6 +57,12 @@ npx sesame reset
 
 Regenerate master.key. The configuration is re-encrypted with the new key.
 
+## help
+
+```sh
+npx sesame help
+```
+
 ## load
 
 If you want to access the configuration from within the application, write:
