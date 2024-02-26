@@ -109,8 +109,8 @@ describe('lib/credential', function () {
     });
 
     describe('masterKey', function () {
-      it('should return HASH', function () {
-        assert.match(credential.masterKey, /[0-9a-f]{32}/);
+      it('should return Buffer', function () {
+        assert.match(credential.masterKey.toString('hex'), /[0-9a-f]{64}/);
       })
     });
 
@@ -173,6 +173,16 @@ describe('lib/credential', function () {
         assert.notEqual(credential.body, prevBody);
         assert.match(credential.body, /^[0-9a-f]+$/);
         assert.equal(credential.read(), `test: 5678`)
+      })
+
+      context('text is multi line', function () {
+        it('should write encrypted text', function () {
+          let prevBody = credential.body;
+          credential.write("test: 5678\npiyo: 7891");
+          assert.notEqual(credential.body, prevBody);
+          assert.match(credential.body, /^[0-9a-f]+\n[0-9a-f]+$/);
+          assert.equal(credential.read(), "test: 5678\npiyo: 7891")
+        })
       })
     })
   });
