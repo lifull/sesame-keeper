@@ -69,7 +69,7 @@ The following is a list of commands:
 
   cat     The contents of the decrypted configuration file are displayed when this command is executed.
 
-  edit    Edit credential file. This command refers to $VISUAL, $EDITOR as the editing editor.
+  edit    Edit credential file. This command refers to VISUAL, EDITOR as the editing editor.
 
   reset   Regenerate master.key. The configuration is re-encrypted with the new key.
 `);
