@@ -1,10 +1,14 @@
 #! /usr/bin/env node
 
-const [operation] = process.argv.slice(2);
+const [operation, option] = process.argv.slice(2);
 
-let Credential = require('../lib/credential');
-let Git = require('../lib/git');
+const Credential = require('../lib/credential');
+const Git = require('../lib/git');
 const log =  require('../lib/log');
+const {
+  MasterKeyNotFoundError,
+  DecryptionError,
+} = require('../lib/error')
 
 switch(operation) {
   case 'setup': {
@@ -37,18 +41,39 @@ switch(operation) {
     break;
   }
   case 'cat': {
-    let credential = new Credential();
-    console.log(credential.read());
+    try {
+      let credential = new Credential();
+      console.log(credential.read());
+    } catch(err) {
+      option === '--debug' ? err?.printDetail() : (err.print ? err?.print() : console.error(err));
+      process.exit(1);
+    }
+
     break;
   }
   case 'edit': {
-    let credential = new Credential();
-    credential.edit()
+    try {
+      let credential = new Credential();
+      credential.edit()
+    } catch(err) {
+      option === '--debug' ? err?.printDetail() : (err.print ? err?.print() : console.error(err));
+      process.exit(1);
+    }
     break;
   }
   case 'reset': {
     let credential = new Credential();
-    credential.reset();
+    try {
+      credential.reset();
+    } catch(err) {
+      if (err instanceof MasterKeyNotFoundError || err instanceof DecryptionError) {
+        log.error('The current master.key is not present or incorrect, so the contents cannot be retained. If you still wish, try the setup command.');
+        (option === '--debug') && err.printDetail();
+        process.exit(1)
+      }
+
+      throw err;
+    }
     break;
   }
   case 'help': {
