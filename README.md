@@ -7,7 +7,7 @@ open sesame!
 ## install
 
 ```sh
-npm install @lifull/sesame-keeper --save
+npm install @lifull-dev/sesame-keeper --save
 ```
 
 ## setup
